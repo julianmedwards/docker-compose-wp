@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - PYTHON_VERSION=3.11-alpine
+        - PYTHON_VERSION=${PYTHON_VERSION}
     image: julianmedwards/flask-redis:1.0
     env_file:
       - env.txt
@@ -16,7 +16,7 @@ services:
       - mynet
 
   redis:
-    image: redis:alpine
+    image: redis:${REDIS_VERSION}
     networks:
       - mynet
     volumes:
