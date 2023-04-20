@@ -8,8 +8,8 @@ services:
       args:
         - PYTHON_VERSION=3.11-alpine
     image: julianmedwards/flask-redis:1.0
-    environment:
-      - FLASK_ENV=development
+    env_file:
+      - env.txt
     ports:
       - 5000:5000
     networks:
