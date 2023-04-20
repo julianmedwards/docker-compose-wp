@@ -12,6 +12,18 @@ services:
       - FLASK_ENV=development
     ports:
       - 5000:5000
+    networks:
+      - mynet
 
   redis:
     image: redis:alpine
+    networks:
+      - mynet
+    volumes:
+      - mydata:/data
+
+networks:
+  mynet:
+
+volumes:
+  mydata:
